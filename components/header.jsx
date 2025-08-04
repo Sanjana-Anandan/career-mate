@@ -8,29 +8,33 @@ import { LayoutDashboard } from 'lucide-react'
 const Header = () => {
   return (
     <header className='fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60'>
-        <nav>
+        <nav className='container mx-auto px-4 h-16 flex justify-between items-center'>
             <Link href="/" >
-            <Image src = '/career-logo.png' alt='careermate' width={200} height={60} className='h-20 py-1 w-auto object-contain'/>
+            <Image src = '/career-logo.png' alt='careermate' width={200} height={60} className='h-12 py-1 w-auto object-contain'/>
             </Link>
-        </nav>
+        
         <div>
             <SignedIn>
                 <Link href={"/dashboard"}>
                 <Button>
                     <LayoutDashboard className='h-4 w-4'/>
-                    Industry Insights
+                    <span className='hidden md:block'>Industry Insights</span>
                 </Button>
                 </Link>
             </SignedIn>
         </div>
+        </nav>
       <SignedOut>
         <SignInButton />
       </SignedOut>
       <SignedIn>
         <UserButton />
       </SignedIn>
+    
     </header>
+   
   )
+
 }
 
 export default Header
